@@ -1,0 +1,176 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./../variable/_variable.scss";
+@import "./../mixin/_mixin.scss";
+
+html {
+  font-size: 62.5%;
+}
+body,
+select,
+input,
+textarea,
+button {
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+  color: #333;
+  font-weight: bold;
+  -webkit-font-size-adjust: 100%;
+  @include mq-up() {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  @include mq-down() {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+select,
+input,
+textarea,
+button {
+  display: inline-block;
+  border-radius: 0;
+  vertical-align: middle;
+}
+body {
+  word-break: break-all;
+}
+.is-fixed {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  color: #666;
+  cursor: pointer;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  /* text-decoration: underline; */
+    color: #666;
+}
+main {
+  height: 100vh;
+}
+main a {
+  transition: opacity .3s ease-out;
+}
+img {
+  vertical-align: middle;
+}
+caption {
+  margin-bottom: 5px;
+  text-align: left;
+}
+textarea {
+  resize: vertical;
+}
+address {
+  font-style: normal;
+}
+em {
+  font-style: normal;
+}
+strong {
+  font-weight: normal; 
+}
+legend {
+  display: none;
+}
+table {
+  text-align: left;
+  font-weight: normal;
+}
+th,
+td {
+  font-weight: normal;
+}
+p > img {
+  vertical-align: middle;
+}
+ol,
+li {
+  list-style: none;
+}
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  outline: none;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* iOSでのデフォルトスタイルをリセット */
+input[type="submit"],
+input[type="button"] {
+  border: none;
+  box-sizing: border-box;
+    &:-webkit-search-decoration {
+      display: none;
+    }
+    &:focus {
+      outline-offset: -2px;
+    }
+}
+
+/* text */
+input::-ms-clear {
+  visibility: hidden;
+}
+
+/* password */
+input::-ms-reveal {
+  visibility: hidden;
+}
+
+/* 縦のみリサイズ可 */
+textarea {
+  resize: none;
+}
+
+table, tbody, tr, th, td {
+  display: block;
+}
+
+/* 各ベンダープレフィックスが取れた標準版！！(http://caniuse.com/#search=placeholder-shown) */
+:placeholder-shown {
+    color: $placeholder-color; }
+
+/* Google Chrome, Safari, Opera 15+, Android, iOS */
+::-webkit-input-placeholder {
+    color: $placeholder-color; }
+
+/* Firefox 18- */
+:-moz-placeholder {
+    color: $placeholder-color; opacity: 1; }
+
+/* Firefox 19+ */
+::-moz-placeholder {
+    color: $placeholder-color; opacity: 1; }
+
+/* IE 10+ */
+:-ms-input-placeholder {
+    color: $placeholder-color; }

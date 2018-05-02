@@ -1,0 +1,385 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import "./../../variable/_variable.scss";
+@import "./../../mixin/_mixin.scss";
+
+/*
+-------------------------------------------
+Utility
+-------------------------------------------
+*/
+@include mq-up() {
+  .u-pcContent {
+    display: block;
+  }
+  .u-spContent {
+    display: none;
+  }
+}
+@include mq-down() {
+  .u-pcContent {
+    display: none;
+  }
+  .u-spContent {
+    display: block;
+  }
+}
+.c-disB {
+  display: block;
+}
+.c-disNone {
+  display: none;
+}
+.c-disI {
+  display: inline-block;
+}
+.c-bgGray {
+  background: #ededed;
+}
+.c-mgExtend {
+  margin: -20px -5.5% 0;
+}
+.c-wA {width: auto !important;}
+
+//margin&padding指定
+$i: 1;
+$num: 5;
+@for $i from 0 through 20 {
+  @if $i <= 1 {
+    .u-m0#{$i * $num} {
+      margin:#{$i * $num}px !important;
+    }
+    .u-mt0#{$i * $num} {
+      margin-top:#{$i * $num}px !important;
+    }
+    .u-mr0#{$i * $num} {
+      margin-right:#{$i * $num}px !important;
+    }
+    .u-mb0#{$i * $num} {
+      margin-bottom:#{$i * $num}px !important;
+    }
+    .u-ml0#{$i * $num} {
+      margin-left:#{$i * $num}px !important;
+    }
+    .u-p0#{$i * $num} {
+      padding:#{$i * $num}px !important;
+    }
+    .u-pt0#{$i * $num} {
+      padding-top:#{$i * $num}px !important;
+    }
+    .u-pr0#{$i * $num} {
+      padding-right:#{$i * $num}px !important;
+    }
+    .u-pb0#{$i * $num} {
+      padding-bottom:#{$i * $num}px !important;
+    }
+    .u-pl0#{$i * $num} {
+      padding-left:#{$i * $num}px !important;
+    }
+  } @else {
+    .u-m#{$i * $num} {
+      margin:#{$i * $num}px !important;
+    }
+    .u-mt#{$i * $num} {
+      margin-top:#{$i * $num}px !important;
+    }
+    .u-mr#{$i * $num} {
+      margin-right:#{$i * $num}px !important;
+    }
+    .u-mb#{$i * $num} {
+      margin-bottom:#{$i * $num}px !important;
+    }
+    .u-ml#{$i * $num} {
+      margin-left:#{$i * $num}px !important;
+    }
+    .u-p#{$i * $num} {
+      padding:#{$i * $num}px !important;
+    }
+    .u-pt#{$i * $num} {
+      padding-top:#{$i * $num}px !important;
+    }
+    .u-pr#{$i * $num} {
+      padding-right:#{$i * $num}px !important;
+    }
+    .u-pb#{$i * $num} {
+      padding-bottom:#{$i * $num}px !important;
+    }
+    .u-pl#{$i * $num} {
+      padding-left:#{$i * $num}px !important;
+    }
+  }
+
+  @include mq-up() {
+    @if $i <= 1 {
+      .u-pcM0#{$i * $num} {
+        margin:#{$i * $num}px !important;
+      }
+      .u-pcMt0#{$i * $num} {
+        margin-top:#{$i * $num}px !important;
+      }
+      .u-pcMr0#{$i * $num} {
+        margin-right:#{$i * $num}px !important;
+      }
+      .u-pcMb0#{$i * $num} {
+        margin-bottom:#{$i * $num}px !important;
+      }
+      .u-pcMl0#{$i * $num} {
+        margin-left:#{$i * $num}px !important;
+      }
+      .u-pcP0#{$i * $num} {
+        padding:#{$i * $num}px !important;
+      }
+      .u-pcPt0#{$i * $num} {
+        padding-top:#{$i * $num}px !important;
+      }
+      .u-pcPr0#{$i * $num} {
+        padding-right:#{$i * $num}px !important;
+      }
+      .u-pcPb0#{$i * $num} {
+        padding-bottom:#{$i * $num}px !important;
+      }
+      .u-pcPl0#{$i * $num} {
+        padding-left:#{$i * $num}px !important;
+      }
+    } @else {
+      .u-pcM#{$i * $num} {
+        margin:#{$i * $num}px !important;
+      }
+      .u-pcMt#{$i * $num} {
+        margin-top:#{$i * $num}px !important;
+      }
+      .u-pcMr#{$i * $num} {
+        margin-right:#{$i * $num}px !important;
+      }
+      .u-pcMb#{$i * $num} {
+        margin-bottom:#{$i * $num}px !important;
+      }
+      .u-pcMl#{$i * $num} {
+        margin-left:#{$i * $num}px !important;
+      }
+      .u-pcP#{$i * $num} {
+        padding:#{$i * $num}px !important;
+      }
+      .u-pcPt#{$i * $num} {
+        padding-top:#{$i * $num}px !important;
+      }
+      .u-pcPr#{$i * $num} {
+        padding-right:#{$i * $num}px !important;
+      }
+      .u-pcPb#{$i * $num} {
+        padding-bottom:#{$i * $num}px !important;
+      }
+      .u-pcPl#{$i * $num} {
+        padding-left:#{$i * $num}px !important;
+      }
+    }
+  }
+  @include mq-down() {
+    @if $i <= 1 {
+      .u-spM0#{$i * $num} {
+        margin:#{$i * $num}px !important;
+      }
+      .u-spMt0#{$i * $num} {
+        margin-top:#{$i * $num}px !important;
+      }
+      .u-spMr0#{$i * $num} {
+        margin-right:#{$i * $num}px !important;
+      }
+      .u-spMb0#{$i * $num} {
+        margin-bottom:#{$i * $num}px !important;
+      }
+      .u-spMl0#{$i * $num} {
+        margin-left:#{$i * $num}px !important;
+      }
+      .u-spP0#{$i * $num} {
+        padding:#{$i * $num}px !important;
+      }
+      .u-spPt0#{$i * $num} {
+        padding-top:#{$i * $num}px !important;
+      }
+      .u-spPr0#{$i * $num} {
+        padding-right:#{$i * $num}px !important;
+      }
+      .u-spPb0#{$i * $num} {
+        padding-bottom:#{$i * $num}px !important;
+      }
+      .u-spPl0#{$i * $num} {
+        padding-left:#{$i * $num}px !important;
+      }
+    } @else {
+      .u-spM#{$i * $num} {
+        margin:#{$i * $num}px !important;
+      }
+      .u-spMt#{$i * $num} {
+        margin-top:#{$i * $num}px !important;
+      }
+      .u-spMr#{$i * $num} {
+        margin-right:#{$i * $num}px !important;
+      }
+      .u-spMb#{$i * $num} {
+        margin-bottom:#{$i * $num}px !important;
+      }
+      .u-spMl#{$i * $num} {
+        margin-left:#{$i * $num}px !important;
+      }
+      .u-spP#{$i * $num} {
+        padding:#{$i * $num}px !important;
+      }
+      .u-spPt#{$i * $num} {
+        padding-top:#{$i * $num}px !important;
+      }
+      .u-spPr#{$i * $num} {
+        padding-right:#{$i * $num}px !important;
+      }
+      .u-spPb#{$i * $num} {
+        padding-bottom:#{$i * $num}px !important;
+      }
+      .u-spPl#{$i * $num} {
+        padding-left:#{$i * $num}px !important;
+      }
+    }
+  }
+}
+
+//フォントサイズ指定
+$fs-min: 10;
+$fs-max: 50;
+
+@for $i from $fs-min through $fs-max {
+  @include mq-up() {
+    .u-pcfZ#{$i} {
+      font-size: #{$i}px !important;
+    }
+  }
+  @include mq-down() {
+    .u-spfZ#{$i} {
+      font-size: #{$i}px !important;
+    }
+  }
+}
+
+//width指定
+$w-min: 0;
+$w-max: 100;
+
+@for $i from $w-min through $w-max {
+  @if $i <= 9 {
+    .u-w0#{$i}p {
+      width: #{$i}#{'%'} !important;
+    }
+    .u-mt0#{$i}p {
+      margin: #{$i}#{'%'} !important;
+    }
+    .u-mr0#{$i}p {
+      margin: #{$i}#{'%'} !important;
+    }
+    .u-mb0#{$i}p {
+      margin: #{$i}#{'%'} !important;
+    }
+    .u-ml0#{$i}p {
+      margin: #{$i}#{'%'} !important;
+    }
+      @include mq-up() {
+        .u-pcW0#{$i}p {
+          width: #{$i}#{'%'} !important;
+        }
+        .u-pcMt0#{$i}p {
+          margin-top: #{$i}#{'%'} !important;
+        }
+        .u-pcMr0#{$i}p {
+          margin-right: #{$i}#{'%'} !important;
+        }
+        .u-pcMb0#{$i}p {
+          margin-bottom: #{$i}#{'%'} !important;
+        }
+        .u-pcMl0#{$i}p {
+          margin-left: #{$i}#{'%'} !important;
+        }
+      }
+      @include mq-down() {
+        .u-spW0#{$i}p {
+          width: #{$i}#{'%'} !important;
+        }
+        .u-spMt0#{$i}p {
+          margin-top: #{$i}#{'%'} !important;
+        }
+        .u-spMr0#{$i}p {
+          margin-right: #{$i}#{'%'} !important;
+        }
+        .u-spMb0#{$i}p {
+          margin-bottom: #{$i}#{'%'} !important;
+        }
+        .u-spMl0#{$i}p {
+          margin-left: #{$i}#{'%'} !important;
+        }
+      }
+  } @else {
+    .u-w#{$i}p {
+      width: #{$i}#{'%'} !important;
+    }
+    .u-mt#{$i}p {
+      margin-top: #{$i}#{'%'} !important;
+    }
+    .u-mr#{$i}p {
+      margin-right: #{$i}#{'%'} !important;
+    }
+    .u-mb#{$i}p {
+      margin-left: #{$i}#{'%'} !important;
+    }
+    .u-ml#{$i}p {
+      margin-bottom: #{$i}#{'%'} !important;
+    }
+    @include mq-up() {
+      .u-pcW#{$i}p {
+        width: #{$i}#{'%'} !important;
+      }
+      .u-pcMt#{$i}p {
+        margin-top: #{$i}#{'%'} !important;
+      }
+      .u-pcMr#{$i}p {
+        margin-right: #{$i}#{'%'} !important;
+      }
+      .u-pcMb#{$i}p {
+        margin-bottom: #{$i}#{'%'} !important;
+      }
+      .u-pcMl#{$i}p {
+        margin-left: #{$i}#{'%'} !important;
+      }
+    }
+    @include mq-down() {
+      .u-spW#{$i}p {
+        width: #{$i}#{'%'} !important;
+      }
+      .u-spMt#{$i}p {
+        margin-top: #{$i}#{'%'} !important;
+      }
+      .u-spMr#{$i}p {
+        margin-right: #{$i}#{'%'} !important;
+      }
+      .u-spMb#{$i}p {
+        margin-bottom: #{$i}#{'%'} !important;
+      }
+      .u-spMl#{$i}p {
+        margin-left: #{$i}#{'%'} !important;
+      }
+    }
+  }
+}
+
+// border操作
+.u-bdN {
+  border: none !important;
+}
+
+.u-txtC {
+  text-align: center !important;
+}
+.u-txtR {
+  text-align: right !important;
+}
+.u-txtL {
+  text-align: left !important;
+}

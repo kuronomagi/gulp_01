@@ -1,0 +1,251 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./../../../variable/_variable.scss";
+@import "./../../../mixin/_mixin.scss";
+
+.pc-contents {
+  .c-btn {
+    display: inline-block;
+    margin: 0;
+    padding: 0.75em 2em;
+    border: none;
+    border: 1px solid #d0d0d0;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    background: transparent;
+    background-color: #fff;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+
+    [type="file"] {
+      display: none;
+    }
+  }
+
+  .c-btn[type=button], .c-btn[type=reset], .c-btn[type=submit], .c-btn[type=file]{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .c-btn:hover, .c-btn:active, .c-btn:focus {
+    text-decoration: none;
+  }
+
+  .c-btn:focus {
+    outline-width: 0;
+    box-shadow: 0 0 5px #1589ee;
+  }
+
+  .c-btn:focus:not(.focus-ring) {
+    outline-width: 0;
+    box-shadow: none;
+  }
+
+  .c-btn:disabled, .c-btn-disabled {
+    opacity: 0.5;
+    border-color: #ddd;
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+
+  .c-btn-disabled {
+    pointer-events: none;
+  }
+
+  .c-btn {
+    &.-pc-topbtn {
+      min-width: 127px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: $pc-btn-radius;
+    }
+
+    &.-pc-section-btn {
+      width: 100%;
+    }
+  }
+}
+
+
+/*----------------------
+btn color
+----------------------*/
+.c-btn {
+
+  &.-gray {
+    background: #5a5a5a;
+    color: #fff;
+  }
+
+  &.-red {
+    border-color: #e35252;
+    background: #e35252;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  &.-white {
+    border-color: #e35252;
+    background: #fff;
+    color: #e35252;
+    font-weight: bold;
+  }
+}
+
+/*----------------------
+btn basic
+----------------------*/
+.c-btn {
+  display: block;
+  margin: 0 auto;
+  width: 65%;
+  padding: 12px 5%;
+  border: none;
+  border: 1px solid #d0d0d0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  background-color: #fff;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+
+  [type="file"] {
+    display: none;
+  }
+
+  &.-editing  {
+    width: 60px;
+    font-size: 12px;
+    padding: 4px 11px;
+    border-radius: 30rem;
+    font-weight: bold;
+    color: #e35252;
+    border: 2px solid #e35252;
+    line-height: 1.7;
+  }
+
+  &.-login {
+    color: #fff;
+    background: #e35252;
+    border-radius: 30px;
+    border: 2px solid #fff;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  &.-white {
+    color: #e35252;
+    background: #fff;
+    border-color: #e35252;
+
+    a {
+      color: #e35252;
+    }
+  }
+
+  &.-border {
+    border: 2px solid;
+  }
+
+  &.-icon {
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -81%;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+
+  &.-mic:before {
+    width: 17px;
+    height: 17px;
+    background: image-url("icon_microphone01.svg") no-repeat;
+    background-size: contain;
+  }
+
+  &.-defalutBtn {
+    font-weight: bold;
+  }
+
+  &:hover {
+    @include mq-up() {
+      opacity: 0.8;
+    }
+  }
+
+}
+
+.c-btn[type=button], .c-btn[type=reset], .c-btn[type=submit], .c-btn[type=file]{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.c-btn:hover, .c-btn:active, .c-btn:focus {
+  text-decoration: none;
+}
+
+.c-btn:focus {
+  outline-width: 0;
+  box-shadow: 0 0 5px #1589ee;
+}
+
+.c-btn:focus:not(.focus-ring) {
+  outline-width: 0;
+  box-shadow: none;
+}
+
+.c-btn:disabled, .c-btn-disabled {
+  opacity: 0.5;
+  border-color: #ddd;
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.c-btn-disabled {
+  pointer-events: none;
+}
+
+.c-btn {
+  &.-pc-topbtn {
+    min-width: 127px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: $pc-btn-radius;
+  }
+
+  &.-pc-section-btn {
+    width: 100%;
+  }
+}
+
+.p-btn-block {
+  @include mq-up() {
+    margin-top: 40px;
+  }
+  @include mq-down() {
+    margin-top: 10px;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+}

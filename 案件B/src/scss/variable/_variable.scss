@@ -1,0 +1,35 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// min-width
+$breakpoint-up: (
+  'sm': 'screen and (min-width: 400px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1024px)',
+  'xl': 'screen and (min-width: 1200px)',
+) !default;
+
+// max-width
+$breakpoint-down: (
+  'sm': 'screen and (max-width: 399px)',
+  'md': 'screen and (max-width: 767px)',
+  'lg': 'screen and (max-width: 1024px)',
+  'xl': 'screen and (max-width: 1199px)',
+) !default;
+
+//color
+$basecolor-red: #e35252;
+$basecolor-gray: #dedede;
+$placeholder-color:#b2b4b6;
+$border-color-gray:#e5e5e5;
+
+//width
+$basewidth: 1024px;
+
+//radius
+$pc-img-radius :6px;
+$pc-btn-radius :4px;
+$sp-img-radius :8px;
+$sp-btn-radius :100rem;
+$btn-radius-full :10rem;
