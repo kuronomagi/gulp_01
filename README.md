@@ -268,7 +268,7 @@ root/
 
 - パッケージを追加する際は、` root ` 直下の ` package.json ` がある階層で追加してください。
 
-## **gulpfile.js**
+## **package.json**
 
 ```json:package.json
 {
