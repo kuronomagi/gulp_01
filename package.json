@@ -1,8 +1,8 @@
 {
-  "name": "hoge",
-  "version": "1.0.0",
+  "name": "gulp",
+  "version": "1.0.1",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "",
   "keywords": [],
   "author": "",
   "license": "MIT",

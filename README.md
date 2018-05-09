@@ -110,7 +110,12 @@ npm i
 /node_modules
 ```
 
-下記、構造例です。
+#### gulpについて
+パッケージのgulpはグローバルにもないと動作しない仕様の様子ですが、npm-scriptsを利用し
+ローカルで使用できるよう作成してますので、グローバルへのインストールはなくても大丈夫です。
+
+
+#### 構造例
 プラグインを追加すると` /node_modules `の中にプラグインごとのフォルダが作られ、そこにプラグインのプログラムが追加されます。
 
 ```text:フォルダ内
@@ -134,29 +139,37 @@ npm i
 gulp build
 ```
 
-上手く動作すると下記のような表示がコマンド上に出るかと思います。
+手く動作すると下記のような表示がコマンド上に出るかと思います。
 
 ```ruby:buildを実行
-[17:28:35] Starting 'build'...
-[17:28:35] Starting 'html_build'...
-[17:28:35] Starting 'sass'...
-[17:28:35] Starting 'js_build'...
-[17:28:35] Starting 'img_min'...
-[17:28:44] Finished 'js_build' after 8.97 s
-[17:28:44] Finished 'html_build' after 9.03 s
-[17:28:45] gulp-imagemin: Minified 0 images
-[17:28:45] Finished 'img_min' after 9.5 s
-[17:28:47] Finished 'sass' after 11 s
-[17:28:47] Starting 'css_lint'...
-[17:28:48] Finished 'css_lint' after 1.06 s
-[17:28:48] Finished 'build' after 12 s
+> scripts@1.0.0 build C:\Users\XXX-XXX\Desktop\root\案件A
+> gulp build
+
+[11:14:12] Using gulpfile ~\Desktop\root\案件A\gulpfile.js
+[11:14:12] Starting 'build'...
+[11:14:12] Starting 'html_build'...
+[11:14:12] Starting 'sass'...
+[11:14:12] Starting 'js_build'...
+[11:14:12] Starting 'img_min'...
+[11:14:12] gulp-imagemin: Minified 0 images
+[11:14:12] Finished 'img_min' after 357 ms
+[11:14:12] Finished 'js_build' after 362 ms
+[11:14:12] Finished 'html_build' after 380 ms
+[11:14:13] Finished 'sass' after 1.15 s
+[11:14:13] Starting 'css_lint'...
+[11:14:13] Finished 'css_lint' after 383 ms
+[11:14:13] Finished 'build' after 1.55 s
 ```
 
 ```ruby:watchを実行
-[17:34:44] Starting 'browser_sync'...
-[17:34:44] Finished 'browser_sync' after 31 ms
-[17:34:44] Starting 'watch'...
-[17:34:45] Finished 'watch' after 108 ms
+> scripts@1.0.0 build C:\Users\XXX-XXX\Desktop\root\案件A
+> gulp watch
+
+[11:19:39] Using gulpfile ~\Desktop\root\案件A\gulpfile.js
+[11:19:39] Starting 'browser_sync'...
+[11:19:39] Finished 'browser_sync' after 9.98 ms
+[11:19:39] Starting 'watch'...
+[11:19:39] Finished 'watch' after 64 ms
 [Browsersync] Access URLs:
  --------------------------------------
        Local: http://localhost:8000
@@ -169,16 +182,16 @@ gulp build
 ```
 
 今回 ` gulpfile.js ` で設定しているコマンドは以下になります。
-主に ` gulp watch ` で作業し、必要に応じて ` gulp build ` する想定です。
+主に ` npm run watch ` で作業し、必要に応じて ` npm run build ` する想定です。
 
 ```terminal:ターミナル
-gulp build ... html、scss、js、imageのコンパイルや圧縮。
+npm run build ... html、scss、js、imageのコンパイルや圧縮。
 
-gulp watch ... ライブリロード（html、scss、jsなどに変更があった際にブラウザを自動で更新）
+npm run watch ... ライブリロード（html、scss、jsなどに変更があった際にブラウザを自動で更新）
 
-gulp img ... 画像圧縮のみ実行（srcフォルダの画像をdestフォルダへ出力）
+npm run img ... 画像圧縮のみ実行（srcフォルダの画像をdestフォルダへ出力）
 
-gulp lint ... バリデートチェックのみ実行（エラー結果をターミナル上に出力）
+npm run lint ... バリデートチェックのみ実行（エラー結果をターミナル上に出力）
 ```
 
 エラーが出ると、下記のように出力して教えてくれます。
@@ -233,7 +246,7 @@ root/
 　│　│　├─ css/
 　│　│　├─ store/
 　│　│　└─ index.html
-　│　└─ gulp/
+　│　├─ gulp/
 　│　│　├─ tasks/
 　│　│　│　├─ browser_sync.js
 　│　│　│　├─ css_lint.js
@@ -249,6 +262,7 @@ root/
 　│　│　├─ scss/
 　│　│　├─ store/
 　│　│　└─ index.html
+　│　├─ package.json
 　│　└─ gulpfile.js
 　├─ 案件B/
 　├─ 案件C/
@@ -268,7 +282,9 @@ root/
 
 - パッケージを追加する際は、` root ` 直下の ` package.json ` がある階層で追加してください。
 
-## **package.json**
+- root直下と案件フォルダ直下のそれぞれに ` package.json ` を格納しています。root直下はパッケージインストール用、案件フォルダ直下はタスク実行の為の ` npm-scripts ` 用で分けています。
+
+## **root/package.json**
 
 ```json:package.json
 {
@@ -306,6 +322,29 @@ root/
 ```
 
 npmでインストールするパッケージ一覧になります。
+
+## **root/案件A/package.json**
+
+```json:root/案件A/package.json
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "gulp build",
+    "img": "gulp img",
+    "lint": "gulp lint",
+    "watch": "gulp watch"
+  }
+}
+```
+
+npmコマンドで実行するタスク設定用になります。パッケージインストールはroot直下のpackage.jsonで管理し、こちらはタクス実行用です。
+このpackage.jsonは案件ごとに作成が必要になります。
 
 
 ## **gulpfile.js**
@@ -350,7 +389,7 @@ $.gulp.task('watch', ['browser_sync'], () => {
 
 ```
 ` gulpfile.js ` では主に基本設定とタスク管理で切り分けています。
-` gulp watch ` が開発用、` gulp build ` はファイルが必要な際に都度実行する想定です。
+` npm run watch ` が開発用、` npm run build ` はファイルが必要な際に都度実行する想定です。
 パスは変数で管理、またrunSequenceでcssのlint処理が最後になるよう順番を指定しています。
 
 
